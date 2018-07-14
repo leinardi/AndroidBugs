@@ -1,15 +1,18 @@
 package com.leinardi.androidbugs;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,14 +23,36 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab1.setSize(FloatingActionButton.SIZE_MINI);
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setSize(FloatingActionButton.SIZE_NORMAL);
+
+        FloatingActionButton fab5 = new FloatingActionButton(this);
+        fab5.setSize(FloatingActionButton.SIZE_MINI);
+        CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
+        int margin = getResources().getDimensionPixelOffset(R.dimen.fab_margin);
+        layoutParams.setMargins(
+                margin,
+                margin,
+                margin,
+                margin
+        );
+        fab5.setLayoutParams(layoutParams);
+        fab5.setImageResource(android.R.drawable.ic_dialog_email);
+
+        ((CoordinatorLayout) findViewById(R.id.root)).addView(fab5);
     }
 
     @Override
