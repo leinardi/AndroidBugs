@@ -1,11 +1,20 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="colorPrimary">#f00</item>-->
+        <!--<item name="colorPrimaryDark">#0f0</item>-->
+        <!--<item name="colorAccent">#00f</item>-->
+        <!--<item name="colorControlHighlight">#ff0</item>-->
+        <!--<item name="colorButtonNormal">#0ff</item>-->
+        <item name="materialButtonStyle">@style/Widget.MyApp.MyButton</item>
+    </style>
+
+    <style name="Widget.MyApp.MyButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primary_button_color_selector</item>
+        <item name="android:textColor">@color/primary_text_color_selector</item>
+        <item name="rippleColor">#ff0</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
